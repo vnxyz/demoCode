@@ -1,0 +1,47 @@
+<div ng-if="cars">
+    <h2>Cars available</h2>
+    <div>
+        <p>
+            Sort By:
+        </p>
+        <select ng-model="orderType">
+        <option value="">Default</option>
+        <option value="+price">Price:Low to High</option>
+        <option value="-price">Price:High to Low</option>
+        <option value="companyName">Company Name</option>
+    </select>
+        <select ng-model="selectedCompany">
+        <option value="">All</option>
+        <option value="Hyundai">Hyundai</option>
+        <option value="Volkswagen">Volkswagen</option>
+        <option value="Maruti Suzuki">Maruti Suzuki</option>
+    </select>
+
+    </div>
+    <table>
+        <thead>
+          <tr>
+            <th>
+                Model Name
+            </th>
+            <th>
+                Company Name
+            </th>
+            <th>
+                Price
+            </th>
+          </tr>
+        </thead>
+        <tr ng-repeat="car in cars | filter: selectedCompany | orderBy: orderType">
+            <td>
+                {{car.modelName}}
+            </td>
+            <td>
+                {{car.companyName}}
+            </td>
+            <td>
+                {{car.price | currency:"₹":2}}
+            </td>
+        </tr>
+    </table>
+</div>

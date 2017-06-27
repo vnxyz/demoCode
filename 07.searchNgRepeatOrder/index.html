@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html ng-app="myApp">
+
+<head>
+  <script data-require="angular.js@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular.js"></script>
+  <link rel="stylesheet" href="lib/style.css">
+  <script src="lib/script.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+  <h1>{{message}}</h1>
+  <!--    <form name="searchCar">
+      <input type="search" placeholder="Car Name" ng-model="givenCar"/>
+      <input type="submit" value="search" ng-click="carSearch(givenCar)"/>
+    </form>-->
+  <form name="searchCar" ng-submit="carSearch(givenCar)">
+    <input type="search" required placeholder="Car Name" ng-model="givenCar" />
+    <input type="submit" value="search" />
+  </form>
+  <div>
+    <div>
+      <div>
+        <span ng-if="error" style="color: red">{{error}}</span>
+    </div>
+    <div>
+      Model Name: {{myCar.modelName}}
+    </div>
+    <div>
+      Company Name: {{myCar.companyName}}
+    </div>
+    <div>
+      Fuel Types Available: {{myCar.fuelTypesAvl}}
+    </div>
+    <div>
+      <img ng-src="{{myCar.imageUrl}}" title="{{myCar.companyName}} {{myCar.modelName}}">
+    </div>
+    </div>
+    <div>
+      <h2>Other cars available</h2>
+      <div>
+        <p>
+          Sort By:
+        </p>
+        <select ng-model="orderType">
+          <option value="">Default</option>
+          <option value="+price">Price:Low to High</option>
+          <option value="-price">Price:High to Low</option>
+          <option value="companyName">Company Name</option>
+        </select>
+        <select ng-model="selectedCompany">
+          <option value="">All</option>
+          <option value="Hyundai">Hyundai</option>
+          <option value="Volkswagen">Volkswagen</option>
+          <option value="Maruti Suzuki">Maruti Suzuki</option>
+        </select>
+
+      </div> 
+        <table ng-if="cars">
+          <thead>
+            <th>
+              Model Name
+            </th>
+            <th>
+              Company Name
+            </th>
+            <th>
+              Price
+            </th>
+          </thead>
+          <tr ng-repeat="car in cars | filter: selectedCompany | orderBy: orderType">
+            <td>
+              {{car.modelName}}
+            </td>
+            <td>
+              {{car.companyName}}
+            </td>
+            <td>
+              {{car.price | currency:"₹":2}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

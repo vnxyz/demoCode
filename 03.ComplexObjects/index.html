@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html ng-app="myApp">
+  <head >
+    <script data-require="angular.js@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular.js"></script>
+    <link rel="stylesheet" href="lib/style.css">
+    <script src="lib/script.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <h1>{{message}}</h1>
+    <div>
+      <div>
+        Model Name: {{myCar.modelName}}
+      </div>
+      <div>
+        Company Name: {{myCar.companyName}}
+      </div>
+      <div>
+        Fuel Types Available: {{myCar.fuelTypesAvl}}
+      </div>
+      <div>
+        <!--
+          ng-src is required to tell browser that there is an angular expression 
+          is given as parameter and angular will come and resolve it once it got loaded
+        -->
+        <img ng-src="{{myCar.imageUrl}}" title="{{myCar.companyName}} {{myCar.modelName}}">
+      </div>
+    </div>
+  </body>
+</html>

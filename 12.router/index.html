@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html ng-app="myApp">
+
+<head>
+  <script data-require="angular.js@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular.js"></script>
+  <script data-require="angular-route@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular-route.js"></script>
+  <script src="lib/app.js"></script>
+  <script src="lib/mainCtrl.js"></script>
+  <script src="lib/carCtrl.js"></script>
+  <script src="lib/allCarsCtrl.js"></script>
+  <script src="lib/services.js"></script>
+</head>
+
+<body>
+  <!-- Will be common for all pages -->
+  <h1>
+    Cars.com
+  </h1>
+  <div>
+    <a href="#/main">Go back to home</a>
+  </div>
+  <div>
+    <a href="#/allCars">Go to all cars</a>
+  </div>
+  <!-- will be handled by routing engine-->
+  <div ng-view>Loading...</div>
+</body>
+
+</html>

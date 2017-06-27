@@ -1,0 +1,23 @@
+<!doctype html>
+<!--
+  Here goes the name of the angular module
+-->
+<html ng-app="myApp">
+  <head>
+    <script data-require="angular.js@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular.js"></script>
+    <!--
+      script.js is the place where we are register myApp.
+      We are even declaring and register our controller here.
+      It should always load only after angular.js
+    -->
+    <script src="lib/script.js"></script>
+  </head>
+  <!--
+    On finding ng-controller it will invoke the function mentioned in it(MainCtrl). 
+    This function will manage the area inside the specified DOM element(body).
+  -->
+  <body ng-controller="MainCtrl">
+    <!--Angular looks for the following property in model which is provided by MainCtrl-->
+    <h1>{{message}}</h1>
+  </body>
+</html>

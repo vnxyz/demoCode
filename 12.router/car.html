@@ -1,0 +1,20 @@
+
+    <div ng-show="error" style="color: red">
+    <b>
+        Sorry the given car details are not present in the server
+    </b>
+</div>
+<div ng-show="myCar">
+    <div>
+        Model Name: {{myCar.modelName}}
+    </div>
+    <div>
+        Company Name: {{myCar.companyName}}
+    </div>
+    <div>
+        Fuel Types Available: {{myCar.fuelTypesAvl}}
+    </div>
+    <div>
+        <img ng-src="{{myCar.imageUrl}}" title="{{myCar.companyName}} {{myCar.modelName}}">
+    </div>
+</div>
